@@ -274,9 +274,34 @@
         grid-template-columns: repeat(3, 1fr);
       }
 
-      .exp-role, .exp-promo {
+      /* Mobile experience: title + date on same row, company + footnote below */
+      .exp-role {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 2px;
+      }
+
+      .exp-title {
+        font-size: 14px;
+      }
+
+      .exp-company {
+        margin-bottom: 0;
+      }
+
+      .exp-item > .exp-company {
+        order: 2;
+      }
+
+      .exp-promo {
         flex-direction: column;
-        gap: 2px;
+        gap: 0;
+      }
+
+      .exp-promo-date {
+        font-size: 10px;
       }
     }
   </style>
@@ -384,30 +409,30 @@
     <div class="experience-list">
 
       <div class="exp-item">
-        <div class="exp-company">WPP (Mindshare)</div>
-        <div class="exp-footnote">Global Marketing &amp; Communications Group</div>
         <div class="exp-role">
           <span class="exp-title">Paid Search Manager</span>
           <span class="exp-date">May 2025 – Present · 11 mos</span>
         </div>
+        <div class="exp-company">WPP (Mindshare)</div>
+        <div class="exp-footnote">Global Marketing &amp; Communications Group</div>
       </div>
 
       <div class="exp-item">
-        <div class="exp-company">Sharp Ahead</div>
-        <div class="exp-footnote">Full Service Digital Marketing Agency</div>
         <div class="exp-role">
           <span class="exp-title">Digital Marketing Consultant</span>
           <span class="exp-date">Mar 2024 – May 2025 · 1 yr 2 mos</span>
         </div>
+        <div class="exp-company">Sharp Ahead</div>
+        <div class="exp-footnote">Full Service Digital Marketing Agency</div>
       </div>
 
       <div class="exp-item">
-        <div class="exp-company">PureContent Media</div>
-        <div class="exp-footnote">Full Service Digital Marketing Agency</div>
         <div class="exp-role">
           <span class="exp-title">Senior Digital Marketing Specialist</span>
           <span class="exp-date">Mar 2023 – Mar 2024 · 1 yr</span>
         </div>
+        <div class="exp-company">PureContent Media</div>
+        <div class="exp-footnote">Full Service Digital Marketing Agency</div>
         <div class="exp-promotions">
           <div class="exp-promo">
             <span class="exp-promo-title">Digital Marketing Specialist</span>
@@ -425,19 +450,19 @@
       </div>
 
       <div class="exp-item">
-        <div class="exp-company">Chartered Institute of Marketing (CIM)</div>
         <div class="exp-role">
           <span class="exp-title">Internship</span>
           <span class="exp-date">Sept 2021 · 1 mo</span>
         </div>
+        <div class="exp-company">Chartered Institute of Marketing (CIM)</div>
       </div>
 
       <div class="exp-item">
-        <div class="exp-company">Independent</div>
         <div class="exp-role">
           <span class="exp-title">Ecommerce Brand Founder</span>
           <span class="exp-date">Jan 2021 – Sept 2021 · 9 mos</span>
         </div>
+        <div class="exp-company">Independent</div>
       </div>
 
     </div>
