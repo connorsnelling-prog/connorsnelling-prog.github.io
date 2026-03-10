@@ -125,9 +125,46 @@
       border-radius: 2px;
     }
 
-    .interests { display: flex; flex-wrap: wrap; gap: 8px; }
+    /* ABOUT ME TABS */
+    .about-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
 
-    .interest-tag {
+    .about-tab {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: 1px solid #ddd8d0;
+      border-radius: 999px;
+      color: #999;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .about-tab:hover {
+      color: #555;
+      border-color: #bbb;
+    }
+
+    .about-tab.active {
+      background: #ece9e1;
+      border-color: #ece9e1;
+      color: #111;
+    }
+
+    .about-panel { display: none; }
+    .about-panel.active { display: block; }
+
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .about-tag {
       font-family: 'DM Sans', sans-serif;
       font-size: 13px;
       padding: 5px 12px;
@@ -283,11 +320,9 @@
       }
 
       .exp-title { font-size: 14px; }
-
       .exp-date { font-size: 8px; }
 
       .exp-promo { flex-direction: column; gap: 0; }
-
       .exp-promo-date { font-size: 8px; }
     }
   </style>
@@ -356,12 +391,51 @@
   <hr />
 
   <section>
-    <h2>My interests</h2>
-    <div class="interests">
-      <span class="interest-tag">Reading</span>
-      <span class="interest-tag">Coding</span>
-      <span class="interest-tag">Playing Sports</span>
-      <span class="interest-tag">Running</span>
+    <h2>About me</h2>
+    <div class="about-tabs">
+      <button class="about-tab active" data-tab="interests">Interests</button>
+      <button class="about-tab" data-tab="techstack">Tech Stack</button>
+      <button class="about-tab" data-tab="gadgets">Gadgets</button>
+      <button class="about-tab" data-tab="books">Favourite Books</button>
+    </div>
+
+    <div class="about-panel active" id="tab-interests">
+      <div class="tag-list">
+        <span class="about-tag">Reading</span>
+        <span class="about-tag">Coding</span>
+        <span class="about-tag">Playing Sports</span>
+        <span class="about-tag">Running</span>
+      </div>
+    </div>
+
+    <div class="about-panel" id="tab-techstack">
+      <div class="tag-list">
+        <span class="about-tag">Obsidian</span>
+        <span class="about-tag">Claude Code</span>
+        <span class="about-tag">Ghostty</span>
+        <span class="about-tag">Asana</span>
+        <span class="about-tag">VSC</span>
+      </div>
+    </div>
+
+    <div class="about-panel" id="tab-gadgets">
+      <div class="tag-list">
+        <span class="about-tag">Macbook Air (2025)</span>
+        <span class="about-tag">Google Pixel 9</span>
+        <span class="about-tag">Sony XM-5</span>
+        <span class="about-tag">Airpods</span>
+        <span class="about-tag">Trust Mouse</span>
+      </div>
+    </div>
+
+    <div class="about-panel" id="tab-books">
+      <div class="tag-list">
+        <span class="about-tag">The Road</span>
+        <span class="about-tag">Breakfast at Tiffany's</span>
+        <span class="about-tag">Flowers for Algernon</span>
+        <span class="about-tag">Absolutely and Forever</span>
+        <span class="about-tag">Project Hail Mary</span>
+      </div>
     </div>
   </section>
 
@@ -466,6 +540,17 @@
   </section>
 
   <footer>© 2026 Connor Snelling</footer>
+
+  <script>
+    document.querySelectorAll('.about-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.about-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.about-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
