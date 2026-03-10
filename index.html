@@ -6,7 +6,7 @@
   <title>Connor Snelling</title>
   <link rel="icon" href="favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -46,7 +46,12 @@
       margin-bottom: 20px;
     }
 
-    .hero p { color: #444; }
+    .hero p {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: #444;
+    }
+
     .hero p + p { margin-top: 16px; }
 
     .hero-links {
@@ -97,11 +102,16 @@
       margin-bottom: 20px;
     }
 
-    p { color: #444; }
+    p {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      color: #444;
+    }
 
     .brands { display: flex; flex-wrap: wrap; gap: 8px; }
 
     .brand-tag {
+      font-family: 'DM Mono', monospace;
       font-size: 12px;
       padding: 5px 12px;
       border: 1px solid #ddd8d0;
@@ -116,6 +126,7 @@
     }
 
     .skill-tag {
+      font-family: 'DM Mono', monospace;
       font-size: 11px;
       padding: 7px 8px;
       background: #ede8e1;
@@ -139,9 +150,18 @@
       margin-bottom: 4px;
     }
 
-    .stat-lbl { font-size: 11px; color: #999; }
+    .stat-lbl {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #999;
+    }
 
-    footer { margin-top: 80px; font-size: 11px; color: #bbb; }
+    footer {
+      font-family: 'DM Mono', monospace;
+      margin-top: 80px;
+      font-size: 11px;
+      color: #bbb;
+    }
 
     @media (max-width: 480px) {
       .avatar {
