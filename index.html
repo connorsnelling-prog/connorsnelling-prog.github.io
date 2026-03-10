@@ -274,7 +274,6 @@
         grid-template-columns: repeat(3, 1fr);
       }
 
-      /* Mobile experience: title + date on same row, company + footnote below */
       .exp-role {
         display: flex;
         justify-content: space-between;
@@ -283,26 +282,13 @@
         margin-bottom: 2px;
       }
 
-      .exp-title {
-        font-size: 14px;
-      }
+      .exp-title { font-size: 14px; }
 
-      .exp-company {
-        margin-bottom: 0;
-      }
+      .exp-date { font-size: 8px; }
 
-      .exp-item > .exp-company {
-        order: 2;
-      }
+      .exp-promo { flex-direction: column; gap: 0; }
 
-      .exp-promo {
-        flex-direction: column;
-        gap: 0;
-      }
-
-      .exp-promo-date {
-        font-size: 10px;
-      }
+      .exp-promo-date { font-size: 8px; }
     }
   </style>
 </head>
