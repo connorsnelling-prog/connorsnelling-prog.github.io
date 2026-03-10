@@ -27,13 +27,13 @@
     .hero { margin-bottom: 56px; }
 
     .avatar {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       border-radius: 12px;
       object-fit: cover;
-      display: block;
-      margin-top: 20px;
-      margin-bottom: 20px;
+      float: right;
+      margin-left: 24px;
+      margin-bottom: 8px;
       filter: grayscale(20%);
     }
 
@@ -43,6 +43,7 @@
       font-weight: 600;
       line-height: 1.1;
       letter-spacing: -0.01em;
+      margin-bottom: 20px;
     }
 
     .hero p { color: #444; }
@@ -53,6 +54,7 @@
       display: flex;
       gap: 20px;
       font-size: 13px;
+      clear: both;
     }
 
     .hero-links a {
@@ -141,6 +143,12 @@
     footer { margin-top: 80px; font-size: 12px; color: #bbb; }
 
     @media (max-width: 480px) {
+      .avatar {
+        float: none;
+        display: block;
+        margin: 0 0 20px 0;
+      }
+
       .stats {
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
@@ -158,8 +166,8 @@
 <body>
 
   <div class="hero">
-    <h1>Hi, I'm Connor.</h1>
     <img class="avatar" src="avatar.jpg" alt="Connor Snelling" />
+    <h1>Hi, I'm Connor.</h1>
     <p>I'm in my twenties, living and working in London. I'm currently a manager at WPP, the world's largest marketing organisation, where I specialise in performance marketing.</p>
     <p>I use this site to share thoughts, resources, career updates and anything else worth writing down. Over the past 5+ years I've worked across pretty much every corner of digital marketing. I've led paid media teams managing over £5m+ in spend, managed large websites with millions of visitors and worked with some huge brands like KFC, TK Maxx, eToro etc.</p>
     <div class="hero-links">
