@@ -24,8 +24,7 @@
     a { color: inherit; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* HERO */
-    .hero { margin-bottom: 72px; }
+    .hero { margin-bottom: 56px; }
 
     .hero h1 {
       font-size: 28px;
@@ -35,12 +34,12 @@
       letter-spacing: -0.02em;
     }
 
-    .hero p { color: #444; max-width: 520px; }
+    .hero p { color: #444; }
 
-    .hero p + p { margin-top: 12px; }
+    .hero p + p { margin-top: 16px; }
 
     .hero-links {
-      margin-top: 28px;
+      margin-top: 32px;
       display: flex;
       gap: 20px;
       font-size: 13px;
@@ -52,14 +51,12 @@
       padding-bottom: 1px;
     }
 
-    /* DIVIDER */
     hr {
       border: none;
       border-top: 1px solid #e8e8e8;
       margin: 56px 0;
     }
 
-    /* SECTIONS */
     h2 {
       font-size: 11px;
       font-weight: 500;
@@ -71,12 +68,7 @@
 
     p { color: #444; }
 
-    /* BRANDS */
-    .brands {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .brands { display: flex; flex-wrap: wrap; gap: 8px; }
 
     .brand-tag {
       font-size: 13px;
@@ -86,22 +78,21 @@
       border-radius: 2px;
     }
 
-    /* SKILLS */
     .skills-list {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
       gap: 8px;
     }
 
     .skill-tag {
-      font-size: 13px;
-      padding: 5px 12px;
+      font-size: 12px;
+      padding: 7px 8px;
       background: #f4f4f4;
       color: #444;
       border-radius: 2px;
+      text-align: center;
     }
 
-    /* STATS */
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -115,12 +106,8 @@
       margin-bottom: 4px;
     }
 
-    .stat-lbl {
-      font-size: 12px;
-      color: #999;
-    }
+    .stat-lbl { font-size: 12px; color: #999; }
 
-    /* SUBSTACK */
     .substack-link {
       display: inline-block;
       margin-top: 12px;
@@ -129,12 +116,7 @@
       padding-bottom: 1px;
     }
 
-    /* FOOTER */
-    footer {
-      margin-top: 80px;
-      font-size: 12px;
-      color: #bbb;
-    }
+    footer { margin-top: 80px; font-size: 12px; color: #bbb; }
   </style>
 </head>
 <body>
@@ -144,7 +126,7 @@
     <p>I'm in my twenties, living and working in London. I work in digital marketing as a manager at WPP, the world's largest marketing organisation. It's here I specialise in performance marketing and use this site to share thoughts and resources on my career, side projects, and anything else I find useful.</p>
     <p>If you're a fellow marketer, founder, student, or just fancy a chat, feel free to say hi.</p>
     <div class="hero-links">
-      <a href="#connect">Get in touch →</a>
+      <a href="mailto:connorsnelling@gmail.com">Get in touch →</a>
       <a href="https://www.linkedin.com/in/connorsnelling" target="_blank" rel="noopener">LinkedIn →</a>
     </div>
   </div>
@@ -169,14 +151,14 @@
     </div>
   </section>
 
-  <hr id="work" />
+  <hr />
 
   <section>
     <h2>Brands I've worked with</h2>
     <div class="brands">
       <span class="brand-tag">eToro</span>
       <span class="brand-tag">Unilever</span>
-      <span class="brand-tag">M&amp;S</span>
+      <span class="brand-tag">M&S</span>
       <span class="brand-tag">TK Maxx</span>
       <span class="brand-tag">Mazda</span>
       <span class="brand-tag">KFC</span>
@@ -189,7 +171,7 @@
     </div>
   </section>
 
-  <hr id="writing" />
+  <hr />
 
   <section>
     <h2>Substack</h2>
@@ -216,17 +198,18 @@
       <span class="skill-tag">CSS</span>
       <span class="skill-tag">SEO</span>
       <span class="skill-tag">CRO</span>
+      <span class="skill-tag">Copywriting</span>
     </div>
   </section>
 
-  <hr id="connect" />
+  <hr />
 
   <section>
     <h2>Contact</h2>
     <p>Whether you're a fellow marketer, founder, student, or just fancy a chat, feel free to reach out.</p>
     <div class="hero-links" style="margin-top:16px">
       <a href="https://www.linkedin.com/in/connorsnelling" target="_blank" rel="noopener">LinkedIn →</a>
-      <a href="https://connorsnelling.wixsite.com/home/contact">Send a message →</a>
+      <a href="mailto:connorsnelling@gmail.com">Send a message →</a>
     </div>
   </section>
 
