@@ -306,23 +306,36 @@
       color: #bbb;
     }
 
+    .testimonials-wrap {
+      position: relative;
+    }
+
+    .testimonials-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 20px;
+      width: 80px;
+      background: linear-gradient(to right, transparent, #f5f0eb);
+      pointer-events: none;
+    }
+
     .testimonials-track {
       display: flex;
-      gap: 24px;
+      gap: 32px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      padding-right: 48px;
+      padding-bottom: 4px;
     }
 
     .testimonials-track::-webkit-scrollbar { display: none; }
 
     .testimonial {
-      flex: 0 0 85%;
+      flex: 0 0 78%;
       scroll-snap-align: start;
-      border-left: 2px solid #ddd8d0;
-      padding-left: 20px;
     }
 
     .testimonial-quote {
@@ -348,6 +361,14 @@
       color: #bbb;
       letter-spacing: 0.05em;
       margin-top: 3px;
+    }
+
+    .testimonials-hint {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: #ccc;
+      letter-spacing: 0.08em;
+      margin-top: 14px;
     }
 
     .conbot-preview {
@@ -556,18 +577,21 @@
 
   <section>
     <h2>Testimonials</h2>
-    <div class="testimonials-track">
-      <div class="testimonial">
-        <p class="testimonial-quote">"I had the pleasure of working with Connor at PureContent.com, and I can confidently say that he stands out as a remarkably self-motivated and diligent professional. From day one, Connor was eager to learn, consistently seeking new challenges. His ability to independently find solutions and innovate, even in complex situations, contributed significantly to our team's success. I do not doubt that Connor will continue to excel in his career and make significant contributions to any organisation fortunate enough to have him. He has a bright future, and I wholeheartedly recommend him to any future employer or collaborator."</p>
-        <p class="testimonial-author">David Hobart</p>
-        <p class="testimonial-role">Founder &amp; CEO · PureContent Media</p>
-      </div>
-      <div class="testimonial">
-        <p class="testimonial-quote">"Bollocks I owe you a LinkedIn review."</p>
-        <p class="testimonial-author">Benjamin Lievens</p>
-        <p class="testimonial-role">Principal Consultant · Sharp Ahead</p>
+    <div class="testimonials-wrap">
+      <div class="testimonials-track">
+        <div class="testimonial">
+          <p class="testimonial-quote">"I had the pleasure of working with Connor at PureContent.com, and I can confidently say that he stands out as a remarkably self-motivated and diligent professional. From day one, Connor was eager to learn, consistently seeking new challenges. His ability to independently find solutions and innovate, even in complex situations, contributed significantly to our team's success. I do not doubt that Connor will continue to excel in his career and make significant contributions to any organisation fortunate enough to have him. He has a bright future, and I wholeheartedly recommend him to any future employer or collaborator."</p>
+          <p class="testimonial-author">David Hobart</p>
+          <p class="testimonial-role">Founder &amp; CEO · PureContent Media</p>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-quote">"Bollocks I owe you a LinkedIn review."</p>
+          <p class="testimonial-author">Benjamin Lievens</p>
+          <p class="testimonial-role">Principal Consultant · Sharp Ahead</p>
+        </div>
       </div>
     </div>
+    <p class="testimonials-hint">scroll to see more →</p>
   </section>
 
   <hr />
