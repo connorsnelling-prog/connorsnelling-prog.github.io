@@ -306,13 +306,24 @@
       color: #bbb;
     }
 
+    .testimonials-track {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-right: 48px;
+    }
+
+    .testimonials-track::-webkit-scrollbar { display: none; }
+
     .testimonial {
-      display: none;
+      flex: 0 0 85%;
+      scroll-snap-align: start;
       border-left: 2px solid #ddd8d0;
       padding-left: 20px;
     }
-
-    .testimonial.active { display: block; }
 
     .testimonial-quote {
       font-family: 'DM Sans', sans-serif;
@@ -337,36 +348,6 @@
       color: #bbb;
       letter-spacing: 0.05em;
       margin-top: 3px;
-    }
-
-    .carousel-nav {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .carousel-btn {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: #999;
-      background: none;
-      border: 1px solid #ddd8d0;
-      border-radius: 2px;
-      padding: 4px 10px;
-      cursor: pointer;
-      transition: all 0.15s;
-      letter-spacing: 0.05em;
-    }
-
-    .carousel-btn:hover { color: #111; border-color: #999; }
-    .carousel-btn:disabled { opacity: 0.25; cursor: default; }
-
-    .carousel-count {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: #bbb;
-      letter-spacing: 0.08em;
     }
 
     .conbot-preview {
@@ -575,20 +556,17 @@
 
   <section>
     <h2>Testimonials</h2>
-    <div class="testimonial active">
-      <p class="testimonial-quote">"I had the pleasure of working with Connor at PureContent.com, and I can confidently say that he stands out as a remarkably self-motivated and diligent professional. From day one, Connor was eager to learn, consistently seeking new challenges. His ability to independently find solutions and innovate, even in complex situations, contributed significantly to our team's success. I do not doubt that Connor will continue to excel in his career and make significant contributions to any organisation fortunate enough to have him. He has a bright future, and I wholeheartedly recommend him to any future employer or collaborator."</p>
-      <p class="testimonial-author">David Hobart</p>
-      <p class="testimonial-role">Founder &amp; CEO · PureContent Media</p>
-    </div>
-    <div class="testimonial">
-      <p class="testimonial-quote">"Bollocks I owe you a LinkedIn review."</p>
-      <p class="testimonial-author">Benjamin Lievens</p>
-      <p class="testimonial-role">Principal Consultant · Sharp Ahead</p>
-    </div>
-    <div class="carousel-nav">
-      <button class="carousel-btn" id="testimonial-prev" disabled>← prev</button>
-      <span class="carousel-count" id="testimonial-count">1 / 2</span>
-      <button class="carousel-btn" id="testimonial-next">next →</button>
+    <div class="testimonials-track">
+      <div class="testimonial">
+        <p class="testimonial-quote">"I had the pleasure of working with Connor at PureContent.com, and I can confidently say that he stands out as a remarkably self-motivated and diligent professional. From day one, Connor was eager to learn, consistently seeking new challenges. His ability to independently find solutions and innovate, even in complex situations, contributed significantly to our team's success. I do not doubt that Connor will continue to excel in his career and make significant contributions to any organisation fortunate enough to have him. He has a bright future, and I wholeheartedly recommend him to any future employer or collaborator."</p>
+        <p class="testimonial-author">David Hobart</p>
+        <p class="testimonial-role">Founder &amp; CEO · PureContent Media</p>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-quote">"Bollocks I owe you a LinkedIn review."</p>
+        <p class="testimonial-author">Benjamin Lievens</p>
+        <p class="testimonial-role">Principal Consultant · Sharp Ahead</p>
+      </div>
     </div>
   </section>
 
@@ -695,23 +673,6 @@
   <footer>© 2026 Connor Snelling</footer>
 
   <script>
-    (function() {
-      const testimonials = document.querySelectorAll('.testimonial');
-      const prevBtn = document.getElementById('testimonial-prev');
-      const nextBtn = document.getElementById('testimonial-next');
-      const countEl = document.getElementById('testimonial-count');
-      let current = 0;
-      function show(index) {
-        testimonials.forEach(t => t.classList.remove('active'));
-        testimonials[index].classList.add('active');
-        countEl.textContent = (index + 1) + ' / ' + testimonials.length;
-        prevBtn.disabled = index === 0;
-        nextBtn.disabled = index === testimonials.length - 1;
-      }
-      prevBtn.addEventListener('click', () => show(--current));
-      nextBtn.addEventListener('click', () => show(++current));
-    })();
-
     document.querySelectorAll('.about-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         document.querySelectorAll('.about-tab').forEach(t => t.classList.remove('active'));
