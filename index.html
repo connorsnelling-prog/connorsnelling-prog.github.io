@@ -306,16 +306,45 @@
       color: #bbb;
     }
 
-    .testimonials-wrap {
-      position: relative;
+    .testimonials-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
     }
+
+    .testimonials-header h2 { margin-bottom: 0; }
+
+    .testimonials-nav { display: flex; gap: 8px; }
+
+    .testimonials-nav-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      color: #999;
+      background: none;
+      border: 1px solid #ddd8d0;
+      border-radius: 2px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s;
+      line-height: 1;
+    }
+
+    .testimonials-nav-btn:hover { color: #111; border-color: #aaa; }
+    .testimonials-nav-btn:disabled { opacity: 0.25; cursor: default; }
+
+    .testimonials-wrap { position: relative; }
 
     .testimonials-wrap::after {
       content: '';
       position: absolute;
       top: 0;
       right: 0;
-      bottom: 20px;
+      bottom: 0;
       width: 80px;
       background: linear-gradient(to right, transparent, #f5f0eb);
       pointer-events: none;
@@ -361,14 +390,6 @@
       color: #bbb;
       letter-spacing: 0.05em;
       margin-top: 3px;
-    }
-
-    .testimonials-hint {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: #ccc;
-      letter-spacing: 0.08em;
-      margin-top: 14px;
     }
 
     .conbot-preview {
@@ -576,11 +597,17 @@
   <hr />
 
   <section>
-    <h2>Testimonials</h2>
+    <div class="testimonials-header">
+      <h2>Testimonials</h2>
+      <div class="testimonials-nav">
+        <button class="testimonials-nav-btn" id="t-prev" disabled>←</button>
+        <button class="testimonials-nav-btn" id="t-next">→</button>
+      </div>
+    </div>
     <div class="testimonials-wrap">
       <div class="testimonials-track">
         <div class="testimonial">
-          <p class="testimonial-quote">"I had the pleasure of working with Connor at PureContent.com, and I can confidently say that he stands out as a remarkably self-motivated and diligent professional. From day one, Connor was eager to learn, consistently seeking new challenges. His ability to independently find solutions and innovate, even in complex situations, contributed significantly to our team's success. I do not doubt that Connor will continue to excel in his career and make significant contributions to any organisation fortunate enough to have him. He has a bright future, and I wholeheartedly recommend him to any future employer or collaborator."</p>
+          <p class="testimonial-quote">"I had the pleasure of working with Connor at PureContent Media, and I can confidently say that he stands out as a remarkably self-motivated and diligent professional. From day one, Connor was eager to learn, consistently seeking new challenges. His ability to independently find solutions and innovate, even in complex situations, contributed significantly to our team's success. I do not doubt that Connor will continue to excel in his career and make significant contributions to any organisation fortunate enough to have him. He has a bright future, and I wholeheartedly recommend him to any future employer or collaborator."</p>
           <p class="testimonial-author">David Hobart</p>
           <p class="testimonial-role">Founder &amp; CEO · PureContent Media</p>
         </div>
@@ -591,7 +618,6 @@
         </div>
       </div>
     </div>
-    <p class="testimonials-hint">scroll to see more →</p>
   </section>
 
   <hr />
@@ -697,6 +723,24 @@
   <footer>© 2026 Connor Snelling</footer>
 
   <script>
+    (function() {
+      const track = document.querySelector('.testimonials-track');
+      const tPrev = document.getElementById('t-prev');
+      const tNext = document.getElementById('t-next');
+      function updateBtns() {
+        tPrev.disabled = track.scrollLeft <= 1;
+        tNext.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 1;
+      }
+      function scroll(dir) {
+        const card = track.querySelector('.testimonial');
+        track.scrollBy({ left: dir * (card.offsetWidth + 32), behavior: 'smooth' });
+      }
+      tPrev.addEventListener('click', () => scroll(-1));
+      tNext.addEventListener('click', () => scroll(1));
+      track.addEventListener('scroll', updateBtns);
+      updateBtns();
+    })();
+
     document.querySelectorAll('.about-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         document.querySelectorAll('.about-tab').forEach(t => t.classList.remove('active'));
