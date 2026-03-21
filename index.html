@@ -534,25 +534,24 @@
     }
 
     .exp-more-fade {
-      position: relative;
       height: 80px;
       margin-top: -80px;
+      position: relative;
       background: linear-gradient(to bottom, transparent, #f5f0eb 80%);
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding-bottom: 4px;
       pointer-events: none;
-      transition: opacity 0.3s ease;
     }
 
     .exp-more-fade.hidden {
-      opacity: 0;
-      pointer-events: none;
+      display: none;
+    }
+
+    .exp-btn-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 8px;
     }
 
     .exp-toggle-btn {
-      pointer-events: all;
       background: none;
       border: 1px solid #ddd8d0;
       border-radius: 2px;
@@ -841,9 +840,10 @@
         </div>
 
       </div>
-      <div class="exp-more-fade" id="expFade">
-        <button class="exp-toggle-btn" id="expToggleBtn" onclick="toggleExp()">Show more ↓</button>
-      </div>
+      <div class="exp-more-fade" id="expFade"></div>
+    </div>
+    <div class="exp-btn-wrap">
+      <button class="exp-toggle-btn" id="expToggleBtn" onclick="toggleExp()">Show more ↓</button>
     </div>
 
   </section>
