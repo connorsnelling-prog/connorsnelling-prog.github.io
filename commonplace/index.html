@@ -21,12 +21,32 @@
     .page-title { font-family: 'DM Mono', monospace; font-size: 32px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 20px; }
     .page-intro { font-family: 'DM Sans', sans-serif; font-size: 15px; color: #555; font-weight: 300; line-height: 1.75; }
     hr { border: none; border-top: 1px solid #ddd8d0; margin: 56px 0; }
+
+    .filter-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+    .filter-tab {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border: 1px solid #ddd8d0;
+      border-radius: 999px;
+      color: #999;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .filter-tab:hover { color: #555; border-color: #bbb; }
+    .filter-tab.active { background: #ece9e1; border-color: #ece9e1; color: #111; }
+
     .entry-list { display: flex; flex-direction: column; }
     .entry-row {
       display: grid;
       grid-template-columns: 100px 100px 1fr;
       align-items: center;
-      gap: 0;
       padding: 22px 0;
       border-bottom: 1px solid #ddd8d0;
       text-decoration: none;
@@ -38,9 +58,11 @@
     .entry-date { font-family: 'DM Mono', monospace; font-size: 10px; color: #bbb; letter-spacing: 0.08em; white-space: nowrap; }
     .entry-tag { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: #aaa; border: 1px solid #ddd8d0; border-radius: 999px; padding: 2px 8px; white-space: nowrap; justify-self: start; }
     .entry-title { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 400; color: #111; }
+
     footer { font-family: 'DM Mono', monospace; margin-top: 80px; font-size: 11px; color: #bbb; display: flex; justify-content: space-between; align-items: center; }
     footer a { color: #bbb; border-bottom: 1px solid #ddd8d0; padding-bottom: 1px; }
     footer a:hover { color: #111; border-color: #111; }
+
     @media (max-width: 640px) {
       body { padding: 80px 24px 120px; }
       .page-title { font-size: 24px; }
@@ -59,22 +81,34 @@
 
   <hr />
 
+  <div class="filter-tabs">
+    <button class="filter-tab active" data-filter="all">All</button>
+    <button class="filter-tab" data-filter="gear">Gear</button>
+    <button class="filter-tab" data-filter="hypothesis">Hypothesis</button>
+    <button class="filter-tab" data-filter="observation">Observation</button>
+    <button class="filter-tab" data-filter="method">Method</button>
+  </div>
+
   <div class="entry-list">
-    <a class="entry-row" href="/commonplace/cosmology-hypothesis">
-      <span class="entry-date">30 Mar 2026</span>
-      <span class="entry-tag">Hypothesis</span>
-      <span class="entry-title">A Cosmology Hypothesis I Can't Stop Thinking About</span>
-    </a>
-    <a class="entry-row" href="/commonplace/edc-setup">
-      <span class="entry-date">30 Mar 2026</span>
-      <span class="entry-tag">Gear</span>
-      <span class="entry-title">My EDC Setup</span>
-    </a>
+    <!-- entries go here, each with data-tag matching a filter -->
   </div>
 
   <footer>
     <span>© 2026 Connor Snelling</span>
     <a href="/">connorsnelling.co.uk</a>
   </footer>
+
+  <script>
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.dataset.filter;
+        document.querySelectorAll('.entry-row').forEach(row => {
+          row.style.display = filter === 'all' || row.dataset.tag === filter ? '' : 'none';
+        });
+      });
+    });
+  </script>
 </body>
 </html>
