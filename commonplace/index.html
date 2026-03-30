@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Commonplace — Connor Snelling</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body { font-family: 'DM Mono', monospace; font-weight: 300; font-size: 14px; line-height: 1.8; color: #111; background: #f5f0eb; max-width: 860px; margin: 0 auto; padding: 120px 48px 160px; }
+    a { color: inherit; text-decoration: none; }
+    .back-link { font-family: 'DM Mono', monospace; font-size: 11px; color: #999; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 48px; transition: color 0.15s; }
+    .back-link:hover { color: #111; }
+    .site-header { margin-bottom: 40px; }
+    .page-title { font-family: 'DM Mono', monospace; font-size: 32px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .page-intro { font-family: 'DM Sans', sans-serif; font-size: 15px; color: #555; font-weight: 300; line-height: 1.75; }
+    hr { border: none; border-top: 1px solid #ddd8d0; margin: 56px 0; }
+    .entry-list { display: flex; flex-direction: column; }
+    .entry-row {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid #ddd8d0;
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.15s;
+    }
+    .entry-row:first-child { padding-top: 0; }
+    .entry-row:hover { opacity: 0.6; }
+    .entry-date { font-family: 'DM Mono', monospace; font-size: 10px; color: #bbb; letter-spacing: 0.08em; white-space: nowrap; }
+    .entry-tag { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: #aaa; border: 1px solid #ddd8d0; border-radius: 999px; padding: 2px 8px; white-space: nowrap; }
+    .entry-title { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 400; color: #111; }
+    footer { font-family: 'DM Mono', monospace; margin-top: 80px; font-size: 11px; color: #bbb; display: flex; justify-content: space-between; align-items: center; }
+    footer a { color: #bbb; border-bottom: 1px solid #ddd8d0; padding-bottom: 1px; }
+    footer a:hover { color: #111; border-color: #111; }
+    @media (max-width: 640px) {
+      body { padding: 80px 24px 120px; }
+      .page-title { font-size: 24px; }
+      .entry-row { flex-wrap: wrap; gap: 8px; }
+      footer { flex-direction: column; gap: 8px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <a class="back-link" href="/">← connorsnelling.co.uk</a>
+    <h1 class="page-title">The Commonplace</h1>
+    <p class="page-intro">A collection of things I've thought about long enough to write down.</p>
+  </div>
+
+  <hr />
+
+  <div class="entry-list">
+    <a class="entry-row" href="/commonplace/cosmology-hypothesis">
+      <span class="entry-date">30 Mar 2026</span>
+      <span class="entry-tag">Hypothesis</span>
+      <span class="entry-title">A Cosmology Hypothesis I Can't Stop Thinking About</span>
+    </a>
+    <a class="entry-row" href="/commonplace/edc-setup">
+      <span class="entry-date">30 Mar 2026</span>
+      <span class="entry-tag">Gear</span>
+      <span class="entry-title">My EDC Setup</span>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Connor Snelling</span>
+    <a href="/">connorsnelling.co.uk</a>
+  </footer>
+</body>
+</html>
