@@ -20,7 +20,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; cursor: none; }
+    .cursor-dot { width: 7px; height: 7px; background: #111; border-radius: 50%; position: fixed; pointer-events: none; transform: translate(-50%, -50%); z-index: 9999; transition: opacity 0.2s; }
     body { font-family: 'DM Mono', monospace; font-weight: 300; font-size: 14px; line-height: 1.8; color: #111; background: #f5f0eb; max-width: 860px; margin: 0 auto; padding: 120px 48px 160px; }
     a { color: inherit; text-decoration: none; }
     .back-link { font-family: 'DM Mono', monospace; font-size: 11px; color: #999; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 28px; transition: color 0.15s; }
@@ -129,6 +130,17 @@
         });
       });
     });
+  </script>
+  <script>
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    document.body.appendChild(dot);
+    document.addEventListener('mousemove', e => {
+      dot.style.left = e.clientX + 'px';
+      dot.style.top = e.clientY + 'px';
+    });
+    document.addEventListener('mouseleave', () => dot.style.opacity = '0');
+    document.addEventListener('mouseenter', () => dot.style.opacity = '1');
   </script>
 </body>
 </html>

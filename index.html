@@ -25,6 +25,19 @@
       margin: 0;
       padding: 0;
       -webkit-tap-highlight-color: transparent;
+      cursor: none;
+    }
+
+    .cursor-dot {
+      width: 7px;
+      height: 7px;
+      background: #111;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      transition: opacity 0.2s;
     }
 
     button {
@@ -961,5 +974,16 @@
 
   </script>
 
+  <script>
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    document.body.appendChild(dot);
+    document.addEventListener('mousemove', e => {
+      dot.style.left = e.clientX + 'px';
+      dot.style.top = e.clientY + 'px';
+    });
+    document.addEventListener('mouseleave', () => dot.style.opacity = '0');
+    document.addEventListener('mouseenter', () => dot.style.opacity = '1');
+  </script>
 </body>
 </html>
